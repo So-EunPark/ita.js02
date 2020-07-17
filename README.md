@@ -1,1 +1,1 @@
-# ita.js02
+# ITA-javascipt-2
