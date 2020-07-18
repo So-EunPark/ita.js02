@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>세미나 등록하기</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
   </head>
   <body>
     <header>
@@ -35,11 +34,11 @@
             <div>참가비 <span class="required">*</span></div>
             <div>
               <label>
-                <input type="radio" />
+                <input type="radio" name="fee" value="유료" />
                 <span>유료</span>
               </label>
               <label>
-                <input type="radio" />
+                <input type="radio" name="fee" value="무료" />
                 <span>무료</span>
               </label>
             </div>
@@ -68,19 +67,19 @@
             <div>직책 <span class="required">*</span></div>
             <div>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" value="개발자" />
                 <span>개발자</span>
               </label>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" value="팀장" />
                 <span>팀장</span>
               </label>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" value="과장" />
                 <span>과장</span>
               </label>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" value="부장" />
                 <span>부장</span>
               </label>
               <div class="etc">※ 다중선택 가능</div>
@@ -112,7 +111,7 @@
           </div>
           <!-- BTN -->
           <div class="btn-group">
-            <a href="" onclick="addPost()">등록</a>
+            <a style="cursor: pointer;" onclick="addRow()">등록</a>
           </div>
         </div>
         <!-- LIST -->
@@ -128,7 +127,7 @@
                 <th>삭제</th>
               </tr>
             </thead>
-            <tbody id="mytbody">
+            <tbody>
               <tr>
                 <td class="title">SW 교육 컨퍼런스</td>
                 <td>개발자, 팀장, 과장, 부장</td>
@@ -163,5 +162,6 @@
     <footer>
       <div class="container">ⓒ 세미나 등록하기. All rights reserved.</div>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
