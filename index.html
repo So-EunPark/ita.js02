@@ -26,8 +26,10 @@
                 name="title"
                 placeholder="주제를 입력하세요"
                 value=""
+                onkeyup="textByteCheck(200)"
+                maxlength="200"
               />
-              <span>( 0 / 200 )</span>
+              <span>( <span id="count">0</span> / 200 )</span>
             </div>
           </div>
           <div class="box">
@@ -89,33 +91,39 @@
             <div>첨부</div>
             <div>
               <!-- 파일첨부 전 -->
-              <div class="attach-wrap">
+              <div class="attach-wrap" style="display: block;">
                 <div class="attached">파일첨부</div>
                 <div class="attach-file">
-                  <input type="file" class="filecustom" />
+                  <input
+                    type="file"
+                    class="filecustom"
+                    onclick="afterAttach()"
+                    multiple
+                  />
                   <div class="bn-attach"></div>
                 </div>
               </div>
 
               <!-- 파일첨부 후 -->
-              <!-- <div class="attach-wrap">
-                            <div class="attached">
-                                <a class="ico-trash"></a>ico-comment.png
-                            </div>
-                            <div class="attach-file">
-                                <input type="file" class="filecustom">
-                                <div class="bn-attach"></div>
-                            </div>
-                        </div> -->
+              <div class="attach-wrap" style="display: none;">
+                <div class="attached">
+                  <a class="ico-trash"></a>ico-comment.png
+                </div>
+                <div class="attach-file">
+                  <input type="file" class="filecustom" />
+                  <div class="bn-attach"></div>
+                </div>
+              </div>
             </div>
           </div>
+
           <!-- BTN -->
           <div class="btn-group">
             <a style="cursor: pointer;" onclick="addRow()">등록</a>
           </div>
         </div>
         <!-- LIST -->
-        <div class="table-responsive">
+        <div class="table-responsive" style="display: none;">
           <table>
             <thead>
               <tr>
