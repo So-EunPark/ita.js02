@@ -46,22 +46,41 @@ function addRow() {
   let feeText = fee();
   let cityText = city();
 
+  let newPost = new Array();
+  newPost[0] = title();
+  newPost[1] = position();
+  newPost[2] = city();
+  newPost[3] = fee();
+
+  for (let i = 0; i < newPost.length; i++) {
+    if (!newPost[i]) {
+      alert("필수 입력란을 모두 입력해 주세요.");
+      return;
+    }
+  }
+
   let tbody = document.body.querySelector("tbody");
 
   if (tbody) {
     let newRow = tbody.insertRow(0);
 
-    let newTitle = newRow.insertCell(0);
-    newTitle.setAttribute("class", "title");
-    newTitle.innerHTML = titleText;
+    let titleCell = newRow.insertCell(0);
+    titleCell.setAttribute("class", "title");
+    titleCell.innerHTML = newPost[0];
 
-    let newPosition = newRow.insertCell(1);
-    newPosition.innerHTML = positionText;
+    let positionCell = newRow.insertCell(1);
+    positionCell.innerHTML = newPost[1];
 
-    let newCity = newRow.insertCell(2);
-    newCity.innerHTML = cityText;
+    let cityCell = newRow.insertCell(2);
+    cityCell.innerHTML = newPost[2];
 
-    let newFee = newRow.insertCell(3);
-    newFee.innerHTML = feeText;
+    let feeCell = newRow.insertCell(3);
+    feeCell.innerHTML = newPost[3];
+
+    let attachmentCell = newRow.insertCell(4);
+    // attachmentCell.innerHTML
+    let deleteCell = newRow.insertCell(5);
   }
 }
+
+function clearForm() {}
