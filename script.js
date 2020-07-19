@@ -149,8 +149,19 @@ function addRow() {
   let deleteBtn = document.createElement("a");
   deleteBtn.setAttribute("class", "ico-trash");
   deleteCell.appendChild(deleteBtn);
-  // attachmentCell.innerHTML
-  // titleCell.innerHTML
+
+  deleteBtn.addEventListener("click", function () {
+    if (this.parentNode.parentNode.rowIndex == 1) {
+      tbody.deleteRow(-1);
+    } else if (
+      this.parentNode.parentNode.rowIndex ==
+      this.parentNode.parentNode.parentNode.children.length
+    ) {
+      tbody.deleteRow(-1);
+    } else {
+      tbody.deleteRow(this.parentNode.parentNode.rowIndex);
+    }
+  });
 
   clearForm();
 }
