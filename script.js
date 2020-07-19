@@ -32,6 +32,14 @@ let position = () => {
   return positionList;
 };
 
+function clearForm() {
+  posting[0].querySelector("input").value = null;
+  posting[2].querySelector("select").selectedIndex = "0";
+  for (let i = 0; i < 4; i++) {
+    posting[3].querySelectorAll("input")[i].checked = null;
+  }
+}
+
 function getPosting() {
   title();
   fee();
@@ -41,11 +49,6 @@ function getPosting() {
 }
 
 function addRow() {
-  let titleText = title();
-  let positionText = position();
-  let feeText = fee();
-  let cityText = city();
-
   let newPost = new Array();
   newPost[0] = title();
   newPost[1] = position();
@@ -53,7 +56,7 @@ function addRow() {
   newPost[3] = fee();
 
   for (let i = 0; i < newPost.length; i++) {
-    if (!newPost[i]) {
+    if (!newPost[i] || newPost[i] == "") {
       alert("필수 입력란을 모두 입력해 주세요.");
       return;
     }
@@ -61,26 +64,24 @@ function addRow() {
 
   let tbody = document.body.querySelector("tbody");
 
-  if (tbody) {
-    let newRow = tbody.insertRow(0);
+  let newRow = tbody.insertRow(0);
 
-    let titleCell = newRow.insertCell(0);
-    titleCell.setAttribute("class", "title");
-    titleCell.innerHTML = newPost[0];
+  let titleCell = newRow.insertCell(0);
+  let positionCell = newRow.insertCell(1);
+  let cityCell = newRow.insertCell(2);
+  let feeCell = newRow.insertCell(3);
+  let attachmentCell = newRow.insertCell(4);
+  let deleteCell = newRow.insertCell(5);
 
-    let positionCell = newRow.insertCell(1);
-    positionCell.innerHTML = newPost[1];
+  titleCell.setAttribute("class", "title");
+  titleCell.innerHTML = newPost[0];
+  positionCell.innerHTML = newPost[1];
+  cityCell.innerHTML = newPost[2];
+  feeCell.innerHTML = newPost[3];
+  // attachmentCell.innerHTML
+  // titleCell.innerHTML
 
-    let cityCell = newRow.insertCell(2);
-    cityCell.innerHTML = newPost[2];
+  console.log(newPost[1]);
 
-    let feeCell = newRow.insertCell(3);
-    feeCell.innerHTML = newPost[3];
-
-    let attachmentCell = newRow.insertCell(4);
-    // attachmentCell.innerHTML
-    let deleteCell = newRow.insertCell(5);
-  }
+  clearForm();
 }
-
-function clearForm() {}
