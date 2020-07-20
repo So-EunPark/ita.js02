@@ -1,10 +1,5 @@
 "use strict";
 
-// var fileCheck = document.getElementById("bfile").value;
-// if (!fileCheck) {
-//   alert("파일을 첨부해 주세요");
-// }
-
 let posting = document.querySelectorAll(".box");
 
 let title = () => {
@@ -12,10 +7,10 @@ let title = () => {
 };
 
 let fee = () => {
-  let checked = posting[1].querySelectorAll("label>input");
+  let radio = posting[1].querySelectorAll("label>input");
   for (let i = 0; i < 2; i++) {
-    if (checked[i].checked) {
-      return checked[i].value;
+    if (radio[i].checked) {
+      return radio[i].value;
     }
   }
 };
@@ -61,7 +56,6 @@ function afterAttach() {
       }
     }
   });
-  return 1;
 }
 
 function clearForm() {
@@ -100,12 +94,8 @@ function textByteCheck(maxByte) {
           maxByte / 2 +
           "자 까지 입력 가능합니다."
       );
-      posting[0].querySelector("input").value = text.substring(0, maxByte);
-      console.log(totalByte);
     }
   }
-
-  //   console.log(textCount);
 }
 
 function addRow() {
